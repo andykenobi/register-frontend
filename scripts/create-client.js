@@ -1,17 +1,33 @@
 var app = new Vue({
     el: '#app',
     data: {
+        alert: {
+            success: [],
+            errors: []
+        },
+        client: {
+            name: '',
+            email: '',
+            birthday: '',
+            cep: '',
+        }
     },
 
     methods: {
         submit: function () {
-            axios.get('https://localhost:7171/api/client/1')
-                .then(function (response) {
-                    console.log(response.data);
+            this.alert.success = [];
+            this.alert.errors = [];
+
+            axios.post(WEBAPI_NAME + 'client', this.client)
+                .then((response) => {
+                    this.alert.success.push('Client created.');
+                    window.location = "../index.html";
                 })
-                .catch(function (error) {
-                    console.log(error);
-                });
+                .catch((error) => {
+                    error.response.data.errors.forEach(element => {
+                        this.alert.errors.push(element);
+                })
+            });
         }
     }
 })

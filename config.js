@@ -1,0 +1,1 @@
+const WEBAPI_NAME = "https://localhost:7171/api/";
