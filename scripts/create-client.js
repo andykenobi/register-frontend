@@ -18,7 +18,7 @@ var app = new Vue({
             this.alert.success = [];
             this.alert.errors = [];
 
-            axios.post(WEBAPI_NAME + 'client', this.client)
+            axios.post(WEBAPI_HOSTNAME + 'client', this.client)
                 .then((response) => {
                     this.alert.success.push('Client created.');
                     window.location = "../index.html";

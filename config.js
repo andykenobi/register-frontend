@@ -1,1 +1,1 @@
-const WEBAPI_NAME = "https://localhost:7171/api/";
+const WEBAPI_HOSTNAME = "https://localhost:7171/api/";

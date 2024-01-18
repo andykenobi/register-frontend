@@ -7,7 +7,7 @@ var app = new Vue({
     methods: {
         deleteClient: function (id) {
             if (confirm("Delete?") == true) {
-                axios.delete(this.WEBAPI_NAME + 'client/' + id)
+                axios.delete(WEBAPI_HOSTNAME + 'client/' + id)
                     .then(function (response) {
                         location.reload();
                     })
@@ -25,7 +25,7 @@ var app = new Vue({
     ,
     beforeMount() {
         var clients = this.clients;
-        axios.get(this.WEBAPI_NAME + 'client')
+        axios.get(WEBAPI_HOSTNAME + 'client')
             .then(function (response) {
                 response.data.value.forEach(element => {
                     clients.push(element);
